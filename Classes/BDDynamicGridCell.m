@@ -150,8 +150,8 @@
         }
         [UIView animateWithDuration:1.f
                          animations:^{
-                             for (int i=0; i<_gridContainerView.subviews.count; i++){
-                                 UIView* subview = [_gridContainerView.subviews objectAtIndex:i];
+                             for (int i=0; i<self->_gridContainerView.subviews.count; i++){
+                                 UIView* subview = [self->_gridContainerView.subviews objectAtIndex:i];
                                  NSValue* newFrame = [newFrames objectAtIndex:i];
                                  subview.frame = [newFrame CGRectValue];
                                  //[subview setNeedsLayout];

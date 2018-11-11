@@ -29,11 +29,11 @@
     self.delegate = self;
     
     self.onLongPress = ^(UIView* view, NSInteger viewIndex){
-        NSLog(@"Long press on %@, at %d", view, viewIndex);
+		NSLog(@"Long press on %@, at %ld", view, (long)viewIndex);
     };
 
     self.onDoubleTap = ^(UIView* view, NSInteger viewIndex){
-        NSLog(@"Double tap on %@, at %d", view, viewIndex);
+		NSLog(@"Double tap on %@, at %ld", view, (long)viewIndex);
     };
     [self _demoAsyncDataLoading];
     [self buildBarButtons];

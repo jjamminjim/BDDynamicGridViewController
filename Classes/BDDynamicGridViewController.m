@@ -78,7 +78,7 @@
     [self reloadData];
   
   self.onSingleTap = ^(UIView* view, NSInteger index) {
-    NSLog(@"tap on %d", index);
+	  NSLog(@"tap on %ld", (long)index);
   };
     
 }
@@ -192,7 +192,7 @@
             _rowInfos = [_rowInfos arrayByAddingObject:ri];
         }
         ri.isLastCell = YES;
-        NSAssert(accumNumOfViews == self.delegate.numberOfViews, @"wrong accum %u ", ri.accumulatedViews);
+		NSAssert(accumNumOfViews == self.delegate.numberOfViews, @"wrong accum %lu ", (unsigned long)ri.accumulatedViews);
     }else{
         _rowInfos = [self.delegate customLayout];
     }
@@ -224,7 +224,7 @@
             _rowInfos = [_rowInfos arrayByAddingObject:ri];
         }
         ri.isLastCell = YES;
-        NSAssert(accumNumOfViews == self.delegate.numberOfViews, @"wrong accum %u ", ri.accumulatedViews);
+		NSAssert(accumNumOfViews == self.delegate.numberOfViews, @"wrong accum %lu ", (unsigned long)ri.accumulatedViews);
         [_tableView reloadData];
     }
 }
@@ -286,7 +286,7 @@
 {
     BDRowInfo *ri = [_rowInfos objectAtIndex:indexPath.row];
     static NSString *CellIdentifier = @"Cell";
-    BDDynamicGridCell *cell = [tableView dequeueReusableCellWithIdentifier:[CellIdentifier stringByAppendingFormat:@"_viewCount%d", ri.viewsPerCell]];
+	BDDynamicGridCell *cell = [tableView dequeueReusableCellWithIdentifier:[CellIdentifier stringByAppendingFormat:@"_viewCount%lu", (unsigned long)ri.viewsPerCell]];
     
     if (!cell) {
         cell = [[BDDynamicGridCell alloc] initWithLayoutStyle:BDDynamicGridCellLayoutStyleFill
@@ -369,7 +369,7 @@
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView 
                      withVelocity:(CGPoint)velocity 
-              targetContentOffset:(CGPoint *)targetContentOffset
+              targetContentOffset:(inout CGPoint *)targetContentOffset
 {
 //    DLog(@"will end dragging vel: %@", NSStringFromCGPoint(velocity));
     if (velocity.y > 1.5) {
