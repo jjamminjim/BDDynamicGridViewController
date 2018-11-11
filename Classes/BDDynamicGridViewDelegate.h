@@ -53,7 +53,7 @@
  @param rowInfo the information of the row this view appears in.
  @return the UIView to display at specified index.
  */
-- (UIView*) viewAtIndex:(NSUInteger)index rowInfo:(BDRowInfo*)rowInfo;
+- (UIView*) viewAtIndex:(NSUInteger)index rowInfo:(BDRowInfo*)rowInfo  CF_SWIFT_NAME(BDDynamicGridViewController.viewAtIndex(_:rowInfo:));
 
 
 

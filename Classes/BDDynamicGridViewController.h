@@ -51,7 +51,7 @@
  @param index the index of the view.
  @return the view, or nil if the view is not currently visible.
  */
-- (UIView*) viewAtIndex:(NSUInteger)index;
+- (UIView*) viewAtIndex:(NSUInteger)index CF_SWIFT_NAME(BDDynamicGridViewController.viewAtIndex(_:));
 
 /**
  @return the views that are currently visible.
